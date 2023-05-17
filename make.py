@@ -56,17 +56,25 @@ def get_base_argument_parser() -> argparse.ArgumentParser:
         choices=[4,5,6,7,8,9],
         help='number amount'
     )
+    
+    parser.add_argument(
+        '--sd_path',
+        type=str,
+        default='',
+        help='where to put statble-diffusion model'
+    )
 
 
     return parser
 
-def use_sd(prompt: str, save_dir: str,  name: str, model_id="stabilityai/stable-diffusion-2-1", remove=False):
-
+def use_sd(path: str, prompt: str, save_dir: str,  name: str, model_id="stabilityai/stable-diffusion-2-1", remove=False):
+    
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     save_dir = save_dir if save_dir.endswith('/') else save_dir + '/'
     name = name if name.endswith('.png') else name + '.png'
-
-    pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
+    path = path if path.endswith('/') else path + '/'
+    
+    pipe = StableDiffusionPipeline.from_pretrained(path + model_id, torch_dtype=torch.float16, local_files_only=True)
     pipe.scheduler = DPMSolverMultistepScheduler.from_config(pipe.scheduler.config)
     pipe = pipe.to(device)
     image = pipe(prompt).images[0]
@@ -117,7 +125,7 @@ def main():
         cnt = 1
         while num != 0:
             cnt += 1
-            num /= 10
+            num = num // 10
         return cnt
 
     def get_name(opt, cnt_base: int) -> str:
@@ -133,7 +141,7 @@ def main():
     for line in lines:
         name = get_name(opt, cnt_base)
         cnt_base += 1
-        img, _ = use_sd(line, opt.outdir_img, name, remove=True)
+        img, _ = use_sd(opt.sd_path, line, opt.outdir_img, name, remove=True)
         # background of img has been removed
 
         # Produce a sample from the model.
