@@ -1,0 +1,221 @@
+A powerful male lion
+A stealthy Bengal tiger
+A hibernating grizzly bear
+A vigilent young buck
+A faithful Labrador dog
+A furry Persian cat
+A prowling black panther
+A enormous African elephant
+A armored white rhino
+A enormous Nile hippopotamus
+A graceful Masai giraffe
+A fast running Burchell's zebra
+A mischievous capuchin monkey
+A massive silverback gorilla
+A jumping gray kangaroo
+A enormous blue whale
+A fearsome great white shark
+A playful bottlenose dolphin
+A lazy Californian sea lion
+A elusive Arctic walrus
+A flightless emperor penguin
+A colorful greater flamingo
+A speedy African ostrich
+A flightless spotted owl
+A furry koala bear
+A echolocating fruit bat
+A tiny house mouse
+A sewer dwelling brown rat
+A cottontail snowshoe rabbit
+A spiny European hedgehog
+A venomous king cobra
+A freshwater red-eared slider
+A scantly Madagascar tortoise
+A noisy northern leopard frog
+A predatory American crocodile
+A concealed American alligator
+A hermit Atlantic crab
+A large American lobster
+A New Zealand scampi shrimp
+A stripy garden snail
+A colorful monarch butterfly
+A hive European honeybee
+A pesky Aedes mosquito
+A weaving common house spider
+A colony wood ant
+A iridescent ladybug
+A hairy black centipede
+A redheaded millipede
+A stinging scorpion
+A elegant male peacock
+A graceful mute swan
+A keen-eyed golden eagle
+A hunting red-tailed hawk
+A wise snowy owl
+A woodpecking red-bellied woodpecker
+A hovering ruby-throated hummingbird
+A fishing belted kingfisher
+A talking African grey parrot
+A exotic toucan bird
+A quacking mallard duck
+A honking Canada goose
+A scavenging western seagull
+A flying brown pelican
+A Antarctic Adelie penguin
+A speedy spotted kiwi
+A common house sparrow
+A hoarse American crow
+A spineless longsnout seahorse
+A bioluminescent crystal jellyfish
+A clever common octopus
+A ten-armed giant squid
+A prickly green sea cucumber
+A spiny red starfish
+A spiny purple sea urchin
+A anemone hosting clownfish
+A clawed marine lobster
+A scuttling hermit crab
+A shelled pink shrimp 
+A shelled garden snail
+A naked banana slug
+A barking South American sea lion
+A whiskered Arctic walrus
+A grazing manatee
+A playful river otter
+A dam building Canadian beaver
+A spiny African crested porcupine
+A scaled nine-banded armadillo
+A aggressive wolverine
+A black and white giant panda
+A hopping western gray kangaroo
+A old wooden chair
+A small square table
+A soft comfortable bed
+A sturdy study desk
+A large oak cupboard
+A spacious bedroom closet
+A tall kitchen cabinet
+A heavy bookcase
+A dim bedside lamp
+A wide flat screen television
+A portable digital radio
+A cordless smartphone
+A thin lightweight laptop
+A fast intelligent charger
+A strong wifi router
+A noisy electric blender
+A big microwave oven
+A side-by-side refrigerator
+A safe gas stove
+A hot electric oven
+A fuzzy logic rice cooker
+A two-slice pop-up toaster
+A programmable drip coffee maker
+A stainless steel teapot
+A non-stick iron wok
+A scratched Teflon pan
+A aluminum stockpot 
+A sharp kitchen knife
+A silver plated fork
+A plastic red spoon
+A pair of wooden chopsticks
+A ceramic rice bowl
+A glass dinner plate
+A tall beer glass
+A cute coffee mug
+A empty glass bottle
+An open tin can
+An electric water kettle
+A new insulated thermos
+A heavy duty vacuum
+A dusty old broom
+A mop with replaceable mop head
+A plastic cleaning dustpan
+A pack of two-ply toilet paper
+A freshly opened tissue box
+A clean bath towel
+A warm wool blanket
+A soft hypoallergenic pillow
+A support orthopedics mattress 
+A new electric toothbrush
+A whitening mint toothpaste
+A lavender scented soap
+A balancing moisturizing shampoo
+A detangling hair conditioner
+A wide tooth comb
+A salon quality hair dryer
+A high efficiency washer
+A condenser tumble dryer
+A fragrance free detergent
+A lavender scented softener
+A sturdy wooden hanger
+A stainless steel bucket
+A porcelain wash basin
+A garbage recycling bin
+A retractable umbrella
+A house door key
+A long wallet
+A water resistant watch
+A fountain ink pen
+A number two pencil
+A college ruled notebook
+A reusable shopping bag
+A gift wrapping box
+An airtight container
+A pair of stainless steel scissors
+A strong duct tape
+A roll of patterned wrapping paper
+A fast red sports car
+A off-road four-wheel drive
+A compact city sedan
+A heavy duty pickup truck
+A long-haul semi truck
+A public transit bus
+A crowded commuter train
+A high-speed bullet train
+A scheduled aircraft
+A private business jet
+A cruising ocean liner
+A massive transport ship
+A stunning luxury yacht
+A wooden paddle boat
+A sit-on-top kayak 
+A pedal-powered bicycle
+An electric assist bike
+A sturdy mountain bike
+A motorized dirt bike
+A roaring racing motorcycle
+A powerful speedboat
+A sail-equipped racing yacht
+A family recreational boat
+A personal paddle board
+A vigorously ambulance
+A fully equipped fire truck
+A patrolling police car
+A massive military tank
+A strictly street sweeper
+A highly efficient snowplow
+A crop-spraying aircraft
+A sky-reach firework
+A submarine exploring submarine
+A astronaut-carrying space shuttle
+A interplanetary space probe
+A lunar landing module
+A robotic Mars rover
+A reusable Falcon rocket
+A winged spacecraft
+A geostationary satellite
+A advanced telescope
+A eruption monitoring seismometer
+A deep-sea submersible
+A remote-control aerial drone
+A short-range missile
+A automated forklift
+A complex harvester
+A intelligent humanoid robot
+A convertible classic car
+A cramped mini car
+A three-wheeled auto rickshaw
+A open-top double decker bus
+A private luxury motorhome
+A armored military humvee
