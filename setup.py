@@ -22,6 +22,7 @@ setup(
         "scipy",
         "numpy",
         "clip @ git+https://github.com/openai/CLIP.git",
+        "rembg"
     ],
     author="DesarguesC",
 )
