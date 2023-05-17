@@ -143,7 +143,7 @@ def main():
         pc = sampler.output_to_point_clouds(samples)[0]
         fig = plot_point_cloud(pc, grid_size=1, fixed_bounds=((-0.75, -0.75, -0.75),(0.75, 0.75, 0.75)),
                                 remove_grid=True, single_side=True)
-        fig.savefig(opt.outdir_img + 'point_img/' + name)
+        fig.savefig(opt.outdir_img + 'point/' + name)
 
 
 
