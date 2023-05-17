@@ -23,5 +23,5 @@ setup(
         "numpy",
         "clip @ git+https://github.com/openai/CLIP.git",
     ],
-    author="OpenAI",
+    author="DesarguesC",
 )

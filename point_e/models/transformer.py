@@ -467,7 +467,7 @@ class CLIPImageGridUpsamplePointDiffusionTransformer(UpsamplePointDiffusionTrans
         :param embeddings: a batch of CLIP latent grids to condition on.
         :return: an [N x C3 x T] tensor.
         """
-        assert x.shape[-1] == self.n_ctx
+        # assert x.shape[-1] == self.n_ctx
         t_embed = self.time_embed(timestep_embedding(t, self.backbone.width))
         low_res_embed = self._embed_low_res(low_res)
 

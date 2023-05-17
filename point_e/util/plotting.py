@@ -14,6 +14,8 @@ def plot_point_cloud(
         (-0.75, -0.75, -0.75),
         (0.75, 0.75, 0.75),
     ),
+    remove_grid: bool = False,
+    single_side: bool = False
 ):
     """
     Render a point cloud as a plot to the given image path.
@@ -23,6 +25,9 @@ def plot_point_cloud(
     :param color: if True, show the RGB colors from the point cloud.
     :param grid_size: the number of random rotations to render.
     """
+    if single_side:
+        grid_size = 1
+
     fig = plt.figure(figsize=(8, 8))
 
     for i in range(grid_size):
@@ -61,4 +66,9 @@ def plot_point_cloud(
                 ax.set_ylim3d(fixed_bounds[0][1], fixed_bounds[1][1])
                 ax.set_zlim3d(fixed_bounds[0][2], fixed_bounds[1][2])
 
+    if remove_grid:
+        ax = fig.gca()  # Get current subplot
+        ax.axis('off')  # Turn off subplot axes
+        plt.axis('off')  # Turn off figure axes
+        plt.grid(False)
     return fig

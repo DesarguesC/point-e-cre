@@ -1,0 +1,54 @@
+A fast red sports car+car 
+A off-road four-wheel drive+jeep 
+A compact city sedan+ sedan 
+A heavy duty pickup truck+truck    
+A long-haul semi truck+semi  
+A public transit bus+bus 
+A crowded commuter train+train
+A high-speed bullet train+bullet-train
+A scheduled aircraft+airplane   
+A private business jet+jet    
+A cruising ocean liner+ship  
+A massive transport ship+cargo-ship
+A stunning luxury yacht+yacht
+A wooden paddle boat+canoe 
+A sit-on-top kayak +kayak 
+A pedal-powered bicycle+bicycle
+An electric assist bike+e-bike
+A sturdy mountain bike+mountain-bike
+A motorized dirt bike+dirt bike
+A roaring racing motorcycle+motorcycle
+A powerful speedboat+speedboat 
+A sail-equipped racing yacht+racing-yacht 
+A family recreational boat+boat   
+A personal paddle board+paddle-board
+A vigorously ambulance+ambulance
+A fully equipped fire truck+fire-truck
+A patrolling police car+police-car
+A massive military tank+tank
+A strictly street sweeper+street-sweeper
+A highly efficient snowplow+snowplow
+A crop-spraying aircraft+crop-duster 
+A sky-reach firework+firework 
+A submarine exploring submarine+submarine 
+A astronaut-carrying space shuttle+space-shuttle
+A interplanetary space probe+space-probe  
+A lunar landing module+lunar-module 
+A robotic Mars rover+Mars-rover
+A reusable Falcon rocket+rocket 
+A winged spacecraft+spacecraft   
+A geostationary satellite+satellite    
+A advanced telescope+telescope   
+A eruption monitoring seismometer+seismometer
+A deep-sea submersible+submersible  
+A remote-control aerial drone+drone
+A short-range missile+missile
+A automated forklift+forklift
+A complex harvester+harvester
+A intelligent humanoid robot+robot   
+A convertible classic car+classic-car 
+A cramped mini car+mini-car 
+A three-wheeled auto rickshaw+auto-rickshaw    
+A open-top double decker bus+double-decker-bus    
+A private luxury motorhome+motorhome
+A armored military humvee+humvee

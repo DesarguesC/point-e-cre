@@ -1,0 +1,77 @@
+A old wooden chair+chair
+A small square table+table 
+A soft comfortable bed+bed 
+A sturdy study desk+desk
+A large oak cupboard+cupboard
+A spacious bedroom closet+closet
+A tall kitchen cabinet+cabinet 
+A heavy bookcase+bookcase
+A dim bedside lamp+lamp
+A wide flat screen television+television
+A portable digital radio+radio  
+A cordless smartphone+phone
+ A thin lightweight laptop+laptop
+A fast intelligent charger+charger
+A strong wifi router+router 
+A noisy electric blender+blender
+A big microwave oven+microwave  
+A side-by-side refrigerator+refrigerator
+A safe gas stove+stove
+A hot electric oven+oven 
+A fuzzy logic rice cooker+rice cooker
+A two-slice pop-up toaster+toaster
+A programmable drip coffee maker+coffee maker  
+A stainless steel teapot+teapot   
+A non-stick iron wok+wok         
+A scratched Teflon pan+pan 
+A aluminum stockpot +pot
+A sharp kitchen knife+knife    
+A silver plated fork+fork 
+A plastic red spoon+spoon    
+A pair of wooden chopsticks+chopsticks
+A ceramic rice bowl+bowl
+A glass dinner plate+plate     
+A tall beer glass+glass         
+A cute coffee mug+mug
+A empty glass bottle+bottle   
+An open tin can+can 
+An electric water kettle+kettle
+A new insulated thermos+thermos 
+A heavy duty vacuum+ vacuum 
+A dusty old broom+broom
+A mop with replaceable mop head+mop       
+A plastic cleaning dustpan+dustpan
+A pack of two-ply toilet paper+toilet-paper
+A freshly opened tissue box+tissue   
+A clean bath towel+towel
+A warm wool blanket+blanket
+A soft hypoallergenic pillow+pillow
+A support orthopedics mattress +mattress  
+A new electric toothbrush+toothbrush     
+A whitening mint toothpaste+toothpaste  
+A lavender scented soap+soap
+A balancing moisturizing shampoo+shampoo      
+A detangling hair conditioner+conditioner
+A wide tooth comb+comb
+A salon quality hair dryer+hair-dryer
+A high efficiency washer+washer
+A condenser tumble dryer+dryer     
+A fragrance free detergent+detergent 
+A lavender scented softener+softener
+A sturdy wooden hanger+hanger
+A stainless steel bucket+bucket  
+A porcelain wash basin+basin
+A garbage recycling bin+bin
+A retractable umbrella+umbrella
+A house door key+key
+A long wallet+wallet
+A water resistant watch+watch
+A fountain ink pen+pen
+A number two pencil+pencil    
+A college ruled notebook+notebook
+A reusable shopping bag+bag 
+A gift wrapping box+box
+An airtight container+ container   
+A pair of stainless steel scissors+scissors   
+A strong duct tape+tape         
+A roll of patterned wrapping paper+wrapping paper
