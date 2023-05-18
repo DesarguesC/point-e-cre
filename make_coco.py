@@ -3,6 +3,7 @@ import torch
 from tqdm.auto import tqdm
 import argparse
 import json
+import time
 
 from point_e.diffusion.configs import DIFFUSION_CONFIGS, diffusion_from_config
 from point_e.diffusion.sampler import PointCloudSampler
@@ -66,6 +67,25 @@ def get_base_argument_parser() -> argparse.ArgumentParser:
         choices=['base40M', 'base300M', 'base1B'],
         help='which model to be used in base diffusion model'
     )
+    parser.add_argument(
+        '--ngpu',
+        type=int,
+        default=0,
+        choices=[0,1,2,3,4,5,6,7,8,9],
+        help='choose which gpu to label'
+    )
+    parser.add_argument(
+        '--start_num',
+        type=int,
+        default=0,
+        help='start from which in COCO'
+    )
+    parser.add_argument(
+        '--end_num',
+        type=int,
+        default=1000,
+        help='end at which in COCO'
+    )
 
     return parser
 
@@ -73,8 +93,8 @@ def get_base_argument_parser() -> argparse.ArgumentParser:
 def main():
     parser = get_base_argument_parser()
     opt = parser.parse_args()
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-
+    device = torch.device(f'cuda:{opt.ngpu}' if torch.cuda.is_available() else 'cpu')
+    assert opt.start_num > opt.end_num, 'invalid [start - end] numbers'
     # read file, create base routes
     
     opt.outdir = opt.outdir if opt.outdir.endswith('/') else opt.outdir + '/'
@@ -124,9 +144,9 @@ def main():
         aux_channels=['R', 'G', 'B'],
         guidance_scale=[3.0, 3.0],
     )
-    
-    
-    for num in range(ANNOTATION_NUM):
+
+    tot = opt.end_num - opt.start_num
+    for num in range(opt.start_num, opt.end_num):
         image_id = (int)(annotation[num]['image_id'])
         caption = annotation[num]['caption']
         image_id = id2name(image_id)
@@ -140,9 +160,12 @@ def main():
         for x in tqdm(sampler.sample_batch_progressive(batch_size=1, model_kwargs=dict(images=[img]))):
             samples = x
         pc = sampler.output_to_point_clouds(samples)[0]
-        fig = plot_point_cloud(pc, grid_size=1, fixed_bounds=((-0.75, -0.75, -0.75), (0.75, 0.75, 0.75)))
+        fig = plot_point_cloud(pc, grid_size=1, fixed_bounds=((-0.75, -0.75, -0.75), (0.75, 0.75, 0.75)),
+                               remove_grid=True, single_side=True)
         fig.savefig(point_img + image_name)         # image removed background
         prompt_file.write(caption + '\n')
+
+        print(f'[finished: {num+1} | remained: {tot+1}]')
 
 
 
