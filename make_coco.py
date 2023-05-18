@@ -75,6 +75,29 @@ def main():
     opt = parser.parse_args()
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
+    # read file, create base routes
+    
+    opt.outdir = opt.outdir if opt.outdir.endswith('/') else opt.outdir + '/'
+    opt.coco_path = opt.coco_path if opt.coco_path.endswith('/') else opt.coco_path + '/'
+    
+    assert opt.coco_path.endswith('coco2017/'), 'coco dataset path ends with \'coco2017\' needed'
+
+    ori_img = opt.outdir + 'ori_img/'    # rewrite and rename coco images into the new folder
+    point_img = opt.outdir + 'point_img/'
+    prompt_path = opt.outdir + 'prompts/'
+
+    prompt_file = open(prompt_path + 'prompts.txt', 'a')
+    
+    json_path = opt.coco_path + 'annotations/captions_train2017.json'
+    image_path = opt.coco_path + 'train2017/'
+    json_caption = open(json_path)
+    json_file = json.load(json_caption)
+    
+    # print(json_file.keys())
+    
+    annotation = json_file['annotations']
+    # list
+    
     # create model
     print('creating base model...')
     base_name = opt.base_model  # use base300M or base1B for better results
@@ -101,34 +124,17 @@ def main():
         aux_channels=['R', 'G', 'B'],
         guidance_scale=[3.0, 3.0],
     )
-
-
-
-    assert not opt.input_txt.endswith('.txt'), 'Invalid Input of input txt path'
-    opt.input_txt = opt.input_txt if opt.input_txt.endswith('/') else opt.input_txt + '/'
-    opt.outdir = opt.outdir if opt.outdir.endswith('/') else opt.outdir + '/'
-    opt.coco_path = opt.coco_path if opt.coco_path.endswith('/') else opt.coco_path + '/'
-    assert opt.coco_path.endswith('coco2017/'), 'coco dataset path ends with \'coco2017\' needed'
-
-    ori_img = opt.outdir + 'ori_img/'    # rewrite and rename coco images into the new folder
-    point_img = opt.outdir + 'point_img/'
-    prompt_path = opt.outdir + 'prompts/'
-
-    prompt_file = open(prompt_path + 'prompts.txt', 'a')
-
-    json_path = opt.coco_path + 'annotations/captions_train2017.json'
-    image_path = opt.coco_path + 'train2017/'
-    json_caption = open(json_path)
-    json_file = json.load(json_caption)
-    annotation = json_file['annotation']
+    
+    
     for num in range(ANNOTATION_NUM):
-        NUM = str(num)
-        image_id = (int)(annotation[NUM]['image_id'])
-        caption = annotation[NUM]['caption']
+        image_id = (int)(annotation[num]['image_id'])
+        caption = annotation[num]['caption']
         image_id = id2name(image_id)
         image_name = image_id + '.jpg'
         img = Image.open(image_path + image_name)
         img = rm(img)
+        if img.mode == 'RGBA':
+            img = img.convert('RGB')
         img.save(ori_img + image_name)              # original image
         samples = None
         for x in tqdm(sampler.sample_batch_progressive(batch_size=1, model_kwargs=dict(images=[img]))):
