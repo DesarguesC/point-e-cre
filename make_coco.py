@@ -31,6 +31,11 @@ def id2name(id: int) -> str:
     cn = get_bit(id)
     return '0' * (cc - cn) + str(id)
 
+def get_name(base: int) -> str:
+    cc = 12;
+    cn = get_bit(base)
+    return '0' * (cc - cn) + str(base)
+
 
 def get_base_argument_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser()
@@ -91,6 +96,7 @@ def get_base_argument_parser() -> argparse.ArgumentParser:
 
 
 def main():
+    
     parser = get_base_argument_parser()
     opt = parser.parse_args()
     device = torch.device(f'cuda:{opt.ngpu}' if torch.cuda.is_available() else 'cpu')
@@ -106,7 +112,7 @@ def main():
     point_img = opt.outdir + 'point_img/'
     prompt_path = opt.outdir + 'prompts/'
 
-    prompt_file = open(prompt_path + 'prompts.txt', 'a')
+    prompt_file = open(prompt_path + f'prompts-{opt.ngpu}.txt', 'a')
     
     json_path = opt.coco_path + 'annotations/captions_train2017.json'
     image_path = opt.coco_path + 'train2017/'
@@ -150,8 +156,8 @@ def main():
         image_id = (int)(annotation[num]['image_id'])
         caption = annotation[num]['caption']
         image_id = id2name(image_id)
-        image_name = image_id + '.jpg'
-        img = Image.open(image_path + image_name)
+        image_name = get_name(num)
+        img = Image.open(image_path + image_id + '.jpg')
         img = rm(img)
         if img.mode == 'RGBA':
             img = img.convert('RGB')
