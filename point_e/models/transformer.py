@@ -335,7 +335,7 @@ class CLIPImageGridPointDiffusionTransformer(PointDiffusionTransformer):
         """
         assert images is not None or embeddings is not None, "must specify images or embeddings"
         assert images is None or embeddings is None, "cannot specify both images and embeddings"
-        assert x.shape[-1] == self.n_ctx
+        # assert x.shape[-1] == self.n_ctx
 
         t_embed = self.time_embed(timestep_embedding(t, self.backbone.width))
 

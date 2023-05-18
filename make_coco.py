@@ -12,6 +12,7 @@ from point_e.models.configs import MODEL_CONFIGS, model_from_config
 from point_e.util.plotting import plot_point_cloud
 from diffusers import StableDiffusionPipeline, DPMSolverMultistepScheduler
 from rembg import remove as rm
+import os
 
 ANNOTATION_NUM = 591752
 
@@ -96,7 +97,7 @@ def get_base_argument_parser() -> argparse.ArgumentParser:
 
 
 def main():
-
+    
     parser = get_base_argument_parser()
     opt = parser.parse_args()
     device = torch.device(f'cuda:{opt.ngpu}' if torch.cuda.is_available() else 'cpu')
@@ -108,11 +109,19 @@ def main():
     
     assert opt.coco_path.endswith('coco2017/'), 'coco dataset path ends with \'coco2017\' needed'
 
-    ori_img = opt.outdir + 'ori_img/'    # rewrite and rename coco images into the new folder
-    point_img = opt.outdir + 'point_img/'
-    prompt_path = opt.outdir + 'prompts/'
+    ori_img = opt.outdir + f'ori_img-{opt.ngpu}/'    # rewrite and rename coco images into the new folder
+    point_img = opt.outdir + f'point_img-{opt.ngpu}/'
+    prompt_path = opt.outdir + f'prompts-{opt.ngpu}/'
+    
+    if not os.path.exists(ori_img):
+        os.mkdir(ori_img)
+    if not os.path.exists(point_img):
+        os.mkdir(point_img)
+    if not os.path.exists(prompt_path):
+        os.mkdir(prompt_path)
+    
 
-    prompt_file = open(prompt_path + f'prompts-{opt.ngpu}.txt', 'a')
+    prompt_file = open(prompt_path + 'prompts.txt', 'a')
     
     json_path = opt.coco_path + 'annotations/captions_train2017.json'
     image_path = opt.coco_path + 'train2017/'
@@ -161,7 +170,7 @@ def main():
         img = rm(img)
         if img.mode == 'RGBA':
             img = img.convert('RGB')
-        img.save(ori_img + image_name)              # original image
+        img.save(ori_img + image_name + '.jpg')              # original image, re-count
         samples = None
         for x in tqdm(sampler.sample_batch_progressive(batch_size=1, model_kwargs=dict(images=[img]))):
             samples = x
@@ -171,7 +180,7 @@ def main():
         fig.savefig(point_img + image_name)         # image removed background
         prompt_file.write(caption + '\n')
 
-        print(f'[finished: {num+1} | remained: {tot}]')
+        print(f'[finished: {num+1-opt.start_num} | remained: {tot}]')
 
 
 
