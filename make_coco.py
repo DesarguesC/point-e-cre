@@ -100,7 +100,7 @@ def main():
     parser = get_base_argument_parser()
     opt = parser.parse_args()
     device = torch.device(f'cuda:{opt.ngpu}' if torch.cuda.is_available() else 'cpu')
-    assert opt.start_num > opt.end_num, 'invalid [start - end] numbers'
+    assert opt.start_num < opt.end_num, 'invalid [start - end] numbers'
     # read file, create base routes
     
     opt.outdir = opt.outdir if opt.outdir.endswith('/') else opt.outdir + '/'
@@ -171,7 +171,7 @@ def main():
         fig.savefig(point_img + image_name)         # image removed background
         prompt_file.write(caption + '\n')
 
-        print(f'[finished: {num+1} | remained: {tot+1}]')
+        print(f'[finished: {num+1} | remained: {tot}]')
 
 
 
