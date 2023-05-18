@@ -177,10 +177,10 @@ def main():
         pc = sampler.output_to_point_clouds(samples)[0]
         fig = plot_point_cloud(pc, grid_size=1, fixed_bounds=((-0.75, -0.75, -0.75), (0.75, 0.75, 0.75)),
                                remove_grid=True, single_side=True)
-        fig.savefig(point_img + image_name)         # image removed background
+        fig.savefig(point_img + image_name + '.jpg')         # image removed background
         prompt_file.write(caption + '\n')
 
-        print(f'[finished: {num+1-opt.start_num} | remained: {tot}]')
+        print(f'[finished: {num+1-opt.start_num} | remained: {tot}]: original image saved at \'{ori_img + image_name}\', point image saved at \'{point_img + image_name}\'')
 
 
 
