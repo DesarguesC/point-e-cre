@@ -22,7 +22,10 @@ setup(
         "scipy",
         "numpy",
         "clip @ git+https://github.com/openai/CLIP.git",
-        "rembg"
+        "rembg",
+        "diffusers==0.12.1",
+        "transformers==4.27.4",
+        "accelerate==0.17.1"
     ],
     author="DesarguesC",
 )
