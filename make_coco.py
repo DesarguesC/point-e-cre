@@ -96,7 +96,7 @@ def get_base_argument_parser() -> argparse.ArgumentParser:
 
 
 def main():
-    
+
     parser = get_base_argument_parser()
     opt = parser.parse_args()
     device = torch.device(f'cuda:{opt.ngpu}' if torch.cuda.is_available() else 'cpu')
