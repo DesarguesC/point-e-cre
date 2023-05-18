@@ -24,7 +24,8 @@ setup(
         "clip @ git+https://github.com/openai/CLIP.git",
         "rembg",
         "diffusers==0.12.1",
-        "transformers==4.27.4"
+        "transformers==4.27.4",
+        "accelerate==0.17.1"
     ],
     author="DesarguesC",
 )

@@ -63,21 +63,34 @@ def get_base_argument_parser() -> argparse.ArgumentParser:
         default='',
         help='where to put statble-diffusion model'
     )
+    
+    parser.add_argument(
+        '--model_id',
+        type=str,
+        default='stabilityai/stable-diffusion-2-1',
+        help='where to put statble-diffusion model'
+    )
 
 
     return parser
 
-def use_sd(path: str, prompt: str, save_dir: str,  name: str, model_id="stabilityai/stable-diffusion-2-1", remove=False):
+def get_sd_model(path: str, model_id="stabilityai/stable-diffusion-2-1"):
+    path = path if path.endswith('/') else path + '/'
+    device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    pipe = StableDiffusionPipeline.from_pretrained(path + model_id, torch_dtype=torch.float16, local_files_only=True)
+    pipe.scheduler = DPMSolverMultistepScheduler.from_config(pipe.scheduler.config)
+    pipe = pipe.to(device)
+    return pipe
+    
+
+
+def use_sd(model, prompt: str, save_dir: str,  name: str, model_id="stabilityai/stable-diffusion-2-1", remove=False):
     
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     save_dir = save_dir if save_dir.endswith('/') else save_dir + '/'
     name = name if name.endswith('.png') else name + '.png'
-    path = path if path.endswith('/') else path + '/'
     
-    pipe = StableDiffusionPipeline.from_pretrained(path + model_id, torch_dtype=torch.float16, local_files_only=True)
-    pipe.scheduler = DPMSolverMultistepScheduler.from_config(pipe.scheduler.config)
-    pipe = pipe.to(device)
-    image = pipe(prompt).images[0]
+    image = model(prompt).images[0]
     if remove:
         image = rm(image)
     image.save(save_dir + 'ori_image/' + name)
@@ -104,10 +117,10 @@ def main():
     upsampler_model.eval()
     upsampler_diffusion = diffusion_from_config(DIFFUSION_CONFIGS['upsample'])
 
-    print('downloading base checkpoint...')
+    print('getting base checkpoint...')
     base_model.load_state_dict(load_checkpoint(base_name, device))
 
-    print('downloading upsampler checkpoint...')
+    print('getting upsampler checkpoint...')
     upsampler_model.load_state_dict(load_checkpoint('upsample', device))
 
     sampler = PointCloudSampler(
@@ -121,8 +134,10 @@ def main():
 
     cnt_base = 0
     def get_bit(num: int) -> int:
-        assert num >= 0
-        cnt = 1
+        if num == 0:
+            return 1
+        assert num > 0
+        cnt = 0
         while num != 0:
             cnt += 1
             num = num // 10
@@ -138,10 +153,12 @@ def main():
 
     prompts = open(opt.input_txt + 'prompt.txt')
     lines = prompts.readlines()
+    model = get_sd_model(opt.sd_path, model_id=opt.model_id)
+    
     for line in lines:
         name = get_name(opt, cnt_base)
         cnt_base += 1
-        img, _ = use_sd(opt.sd_path, line, opt.outdir_img, name, remove=True)
+        img, _ = use_sd(model, line, opt.outdir_img, name, remove=True)
         # background of img has been removed
 
         # Produce a sample from the model.
